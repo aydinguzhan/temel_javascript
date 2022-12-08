@@ -254,7 +254,7 @@ for (let i = 0; i <= 100; i++) {
 //document.write("merhaba");
 
 //html sayfası üzerinde body parent elementi içerisine html tagı eklemek.
-document.body.innerHTML = `<h1>Bu bir h1 tag'idir.</h1>`;
+document.body.innerHTML = `<>Bu bir h1 tag'idir.</h1>`;
 
 
 // forEach kullnarak DOM üzerine eleman yaratmak
@@ -273,7 +273,7 @@ const person = [
         "Name": "İrem",
         "Surname": "Aydemir",
         "Age": 32
-    },  {
+    }, {
         "Name": "Ali",
         "Surname": "Aysen",
         "Age": 25
@@ -296,15 +296,15 @@ console.log(unorder_list)
 
 // loop kullarak tablo oluşturalım
 
-const table =  document.createElement("table")
+const table = document.createElement("table")
 const table_row = document.createElement("tr")
 
 
 let row_count = 0
 
-person.forEach(item=>{
+person.forEach(item => {
     row_count++
-    const table_column = document.createElement("td") 
+    const table_column = document.createElement("td")
     table_column.innerText = `${item.Age}`
     table_row.appendChild(table_column)
 })
@@ -323,45 +323,45 @@ let paragraf = document.createElement("p")
 paragraf.innerText = "apendChild ile eklenen bir paragraf"
 
 paragraf.style.color = "red"
-paragraf.style.fontSize ="3rem"
+paragraf.style.fontSize = "3rem"
 paragraf.style.fontWeight = "600"
 document.body.appendChild(paragraf)
 
 
 // Class yapısı
 
-class Person{
-    constructor(ad,soyad,yas,egitim){
+class Person {
+    constructor(ad, soyad, yas, egitim) {
         this.name = ad;
         this.surname = soyad;
         this.age = yas;
-        this.education =egitim // this sınıfın kendisini ifade eder. Yani sınıftaki değişkenleri işaret ediyoruz.
+        this.education = egitim // this sınıfın kendisini ifade eder. Yani sınıftaki değişkenleri işaret ediyoruz.
     }
-    ekrana_yazdir(){
-        console.log(this.name,this.surname,this.age,this.education)
+    ekrana_yazdir() {
+        console.log(this.name, this.surname, this.age, this.education)
     }
 }
 
-let personel1 = new Person("furkan","öztürk","28","mühendis") //new ile yeni bir instance yani görüntü oluşturduk
-let personel2 = new Person("Oğuzhan","Ay","28","Mühendis")
+let personel1 = new Person("furkan", "öztürk", "28", "mühendis") //new ile yeni bir instance yani görüntü oluşturduk
+let personel2 = new Person("Oğuzhan", "Ay", "28", "Mühendis")
 
 personel1.ekrana_yazdir()
 personel2.ekrana_yazdir()
 
 //miras almak
 
-class Family extends Person{
-   constructor(ad,soyad,yas,egitim){
-    super(ad,soyad,yas,egitim)
-    
-   }
+class Family extends Person {
+    constructor(ad, soyad, yas, egitim) {
+        super(ad, soyad, yas, egitim)
+
+    }
 }
 
-let family_person = new Family("Ali","Ay","63","Mühendis")
+let family_person = new Family("Ali", "Ay", "63", "Mühendis")
 
 family_person.ekrana_yazdir()
 
-document.write(personel1.name.toUpperCase()," ",personel1.surname.toUpperCase()) //toUpperCase tüm harfleri büyük harflere çevirir.
+document.write(personel1.name.toUpperCase(), " ", personel1.surname.toUpperCase()) //toUpperCase tüm harfleri büyük harflere çevirir.
 
 
 // javascript kullanrak card elementi oluşturarak bunu sayfamızda gösterelim
@@ -381,10 +381,10 @@ document.write(personel1.name.toUpperCase()," ",personel1.surname.toUpperCase())
 // yöntem 2
 const container = document.createElement("div");
 const card_img = document.createElement("img");
-card_img.setAttribute("src","https://hips.hearstapps.com/hmg-prod/images/interior-christmas-magic-glowing-tree-fireplace-royalty-free-image-1628537941.jpg");
-card_img.setAttribute("width","500px");
+card_img.setAttribute("src", "https://hips.hearstapps.com/hmg-prod/images/interior-christmas-magic-glowing-tree-fireplace-royalty-free-image-1628537941.jpg");
+card_img.setAttribute("width", "500px");
 const card_text = document.createElement("p")
-card_text.innerText ="Merry Cristmas"
+card_text.innerText = "Merry Cristmas"
 
 container.appendChild(card_img);
 container.appendChild(card_text)
@@ -392,23 +392,155 @@ container.appendChild(card_text)
 
 container.style.display = "flex";
 container.style.flexDirection = "column";
-container.style.justifyContent="center";
-container.style.alignItems="center";
-container.style.border =" thick solid #ececec"
-container.style.padding ="1rem"
-container.style.marginTop ="5rem"
+container.style.justifyContent = "center";
+container.style.alignItems = "center";
+container.style.border = " thick solid #ececec"
+container.style.padding = "1rem"
+container.style.marginTop = "5rem"
 document.body.style.display = "flex"
 document.body.style.display = "flex";
 document.body.style.flexDirection = "column";
-document.body.style.justifyContent="center";
-document.body.style.alignItems="center";
+document.body.style.justifyContent = "center";
+document.body.style.alignItems = "center";
 
-for(let i = 0 ; i < 10 ; i++){
+for (let i = 0; i < 10; i++) {
     document.body.appendChild(container)
 }
 
 
 // Görüldüğü üzerine html ve css yapılarını neden kullandığımız gayet aşikardır :D
 
+
+//Callback : .ağırıldığında belirli bir görevi yerine getiren kod bloğudur.
+
+function selamla(name) {
+    console.log('Merhaba' + ' ' + name);
+}
+// konsola merhaba ve girilen ismi birleştirerek yazan bir fonksiyon oluşturduk.
+// selamla("oguz") => output : Merhaba oguz
+
+// Javascript'te bir fonksiyonnu başka bir fonksiyona atgüman olarak verebiliriz.
+
+function selamla_1(name, callback) {
+    console.log("Merhaba" + " " + name);
+    callback();
+}
+
+//callback olarak tanımladığımız fonsiyonu yazalım
+
+function call_me() {
+    console.log("Ben callback fonksiyonum !");
+}
+
+selamla_1("oguz", call_me); // parantez ile kullanmadığımıza dikkat
+
+
+// öRNEK 2 setTimeout ile yapımızı oluşturalım
+
+console.log("---------------------------------------------");
+
+function selamla_2(name, callback) {
+    console.log("Merhaba Javascript")
+
+    //callback fonksiyonumuz konsol işlemi sonrası çalışsın
+    callback(name)
+}
+
+function say_my_name(name) {
+    console.log('Merhaba ' + name);
+}
+
+setTimeout(selamla_2, 4000, 'Oguzhan', say_my_name);
+
+
+// Promise : Hem kod üreten hemde tüketen koda sahip bir yapı, sana mutlaka bir sonuç sözü veriyorum !
+
+let myPromise = new Promise(function(sonuc, hata){
+    /* işlemlerimiz belkide fetch işlemleri artık ne işine yarıyorsa yaz buraya sonucun başarılı olup olmamasına göre işlem değerlerini döndürecek:)
+    */
+    sonuc();
+    hata();
+});
+// işlem başarılıysa => sonuc 
+// işlem basarısız ise => hata
+
+
+
+myPromise.then(
+    function (value) {
+        console.log("basarılı iş")
+    },
+    function (eror) {
+        console.warn("Hata")
+    }
+)
+
+// Daha açıklayıcı bir örenek verelim
+
+function control_value(some){
+    promise_element = some
+    document.body.append(promise_element)
+}
+
+let new_promise = new Promise(function(relsove, reject){
+    let varible = 0;
+
+    //gerekli işlemler yaparak x'in değerini manüpile ettiğimizi hayal edelim :)
+
+    if( varible == 0){
+        relsove("200 OK Başarılı işlem");
+    }
+    else{
+        reject("Hatalı dostum !");
+    }
+});
+
+new_promise.then(
+    function(value){
+        control_value(value);
+    },
+    function(error){
+        control_value(error);
+    }
+);
+
+/* Callbac yapsısı ile bir işlem gerçekleştirirken işlem sonucuna göre diğer işlemimizi devam ettireceğimiz durumlar ile karşılaşabilkiriz
+Bu tğr durumlarda callback yapısı ile javascriptin asecron yapısından kurtulup işlemlerimizi birbirine bağımlı hale getiririz.
+Öreneğin bir butona bastığımızda dowland işlemi gerçekleştirirken dosyanın indirilmesini beklemeden sayfada özgürce dolaşabiliriz.
+Peki dosyayı indirdikten sonra bu işleme bağımlı bir alert göstermek istersek?
+Bu olayı callback ile mükemmel bir yapıda organize edebiliriz.
+https://www.webcebir.com/273-javascript-callback-fonksiyon-dersi.html buraya bir göz gezdir! */
+
+
+function first(Callback){
+    console.log("ilk işlem");
+    Callback();
+};
+
+first(()=>{console.log("ikinci işlem")})
+
+
+
+//promisse örneği için sayfamızı yönlendirelim ve yönlendirdiğimiz ( google) ekran için konsola buradayım yazdıralım.
+
+
+let href_promise = new Promise(function(sonuc, hata){
+     
+    sonuc();
+    hata();
+});
+// işlem başarılıysa => sonuc 
+// işlem basarısız ise => hata
+
+
+
+href_promise.then(
+    function (value) {
+        console.log("*****BURADAYI*****")
+    },
+    function (eror) {
+        console.warn("Hata")
+    }
+)
 
 
