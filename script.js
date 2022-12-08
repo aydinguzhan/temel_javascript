@@ -455,7 +455,7 @@ setTimeout(selamla_2, 4000, 'Oguzhan', say_my_name);
 
 // Promise : Hem kod üreten hemde tüketen koda sahip bir yapı, sana mutlaka bir sonuç sözü veriyorum !
 
-let myPromise = new Promise(function(sonuc, hata){
+let myPromise = new Promise(function (sonuc, hata) {
     /* işlemlerimiz belkide fetch işlemleri artık ne işine yarıyorsa yaz buraya sonucun başarılı olup olmamasına göre işlem değerlerini döndürecek:)
     */
     sonuc();
@@ -477,29 +477,29 @@ myPromise.then(
 
 // Daha açıklayıcı bir örenek verelim
 
-function control_value(some){
+function control_value(some) {
     promise_element = some
     document.body.append(promise_element)
 }
 
-let new_promise = new Promise(function(relsove, reject){
+let new_promise = new Promise(function (relsove, reject) {
     let varible = 0;
 
     //gerekli işlemler yaparak x'in değerini manüpile ettiğimizi hayal edelim :)
 
-    if( varible == 0){
+    if (varible == 0) {
         relsove("200 OK Başarılı işlem");
     }
-    else{
+    else {
         reject("Hatalı dostum !");
     }
 });
 
 new_promise.then(
-    function(value){
+    function (value) {
         control_value(value);
     },
-    function(error){
+    function (error) {
         control_value(error);
     }
 );
@@ -512,20 +512,20 @@ Bu olayı callback ile mükemmel bir yapıda organize edebiliriz.
 https://www.webcebir.com/273-javascript-callback-fonksiyon-dersi.html buraya bir göz gezdir! */
 
 
-function first(Callback){
+function first(Callback) {
     console.log("ilk işlem");
     Callback();
 };
 
-first(()=>{console.log("ikinci işlem")})
+first(() => { console.log("ikinci işlem") })
 
 
 
 //promisse örneği için sayfamızı yönlendirelim ve yönlendirdiğimiz ( google) ekran için konsola buradayım yazdıralım.
 
 
-let href_promise = new Promise(function(sonuc, hata){
-     
+let href_promise = new Promise(function (sonuc, hata) {
+
     sonuc();
     hata();
 });
@@ -542,5 +542,15 @@ href_promise.then(
         console.warn("Hata")
     }
 )
+// fetch kullanımı, binance için son 24 saatteki kripto paraların değerlerini sağlanan apiyi çekelim
 
+async function kripto() {
+    const response = await fetch('https://api2.binance.com/api/v3/ticker/24hr')
+    let data = await response.json();
+    let turkish_cr = data.filter((item) => item.symbol.endsWith("TRY"));
 
+    console.log(turkish_cr)
+
+}
+// TRY 'lert oluşturduğumuz fonksiyon ile çektik ve konsola yazdırmış olduk:)
+kripto()
