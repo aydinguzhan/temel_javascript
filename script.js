@@ -504,7 +504,7 @@ new_promise.then(
     }
 );
 
-/* Callbac yapsısı ile bir işlem gerçekleştirirken işlem sonucuna göre diğer işlemimizi devam ettireceğimiz durumlar ile karşılaşabilkiriz
+/* Callback yapsısı ile bir işlem gerçekleştirirken işlem sonucuna göre diğer işlemimizi devam ettireceğimiz durumlar ile karşılaşabilkiriz
 Bu tür durumlarda callback yapısı ile javascriptin asecron yapısından kurtulup işlemlerimizi birbirine bağımlı hale getiririz.
 Öreneğin bir butona bastığımızda dowland işlemi gerçekleştirirken dosyanın indirilmesini beklemeden sayfada özgürce dolaşabiliriz.
 Peki dosyayı indirdikten sonra bu işleme bağımlı bir alert göstermek istersek?
