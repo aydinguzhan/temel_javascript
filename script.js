@@ -553,4 +553,45 @@ async function kripto() {
 
 }
 // TRY 'lert oluşturduğumuz fonksiyon ile çektik ve konsola yazdırmış olduk:)
-kripto()
+//kripto()
+
+
+
+// Object metotlar 
+
+let obj = {
+    name : "john",
+    lastName : "bravo",
+    age : "29",
+    country : "USA",
+    chartacter : true
+}
+
+let obj2={
+    name : "rigby",
+    lastName : "odell",
+    age : "22",
+    country : "Germany"
+}
+
+
+// Objenin anhatarlarını bir dizi olarak döndüren object.keys()
+
+console.log("Object.keys(obj) : ", Object.keys(obj))
+
+// Objenin değerlerini bir dizi olarak dönene metot
+
+console.log("OBject.values(obj)", Object.values(obj))
+
+// Objenin key-values çiftlerin,i bir array şekline döndüren metot
+
+console.log("Object.entries(obj",Object.entries(obj))
+
+// iki değerin aynı olup olmadığını kontrol ederek true-false döndüren metot
+console.log("Object.is(obj,obj2)",Object.is(obj,obj2))
+
+// iki dizinin birleştirilmesi Dikkat et eksik olan key-value eklendi
+console.log("Object.assign(obj,obj2)",Object.assign(obj2,obj))
+
+
+
